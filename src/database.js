@@ -1,16 +1,23 @@
 require("dotenv").config();
-const mysql = require("mysql");
+const { Client } = require("pg");
+var bcrypt = require("bcryptjs");
 
 let database;
 
 if (process.env.NODE_ENV === "production") {
-  database = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+  database = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
 } else {
-  database = mysql.createConnection({
+  database = new Client({
     host: "localhost",
-    user: "root",
-    password: process.env.MYSQL_PASSWORD,
-    database: "CHAT_APP",
+    port: 5432,
+    user: "postgres",
+    password: "1234",
+    database: "chat_app",
   });
 }
 
