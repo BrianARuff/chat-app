@@ -18,7 +18,8 @@ const Home = () => {
           fontWeight: "bolder",
           margin: `20px`
         }}
-      >Welcome to Talkopia!</h1>
+      >Welcome to Chattopia!</h1>
+      <h2>Chat with Random People On the Internet</h2>
       <div>
         <p style={{
           fontWeight: "bold",

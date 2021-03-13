@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as React from "react";
 
 const Footer = () => {
@@ -17,31 +18,37 @@ const Footer = () => {
             textAlign: "center",
             width: "100%"
           }}>
-            <a
-              style={{
-                color: "#fdc500"
-              }}
-            >Facebook</a>
+            <Link href={`https://www.linkedin.com/in/brianaruff/`}>
+              <a
+                style={{
+                  color: "#fdc500"
+                }}
+              >LinkedIn</a>
+            </Link>
           </li>
           <li style={{
             textAlign: "center",
             width: "100%"
           }}>
-            <a
-              style={{
-                color: "#fdc500"
-              }}
-            >Twitter</a>
+            <Link href={`https://twitter.com/brianARuff`}>
+              <a
+                style={{
+                  color: "#fdc500"
+                }}
+              >Twitter</a>
+            </Link>
           </li>
           <li style={{
             textAlign: "center",
             width: "100%"
           }}>
-            <a
-              style={{
-                color: "#fdc500"
-              }}
-            >Instagram</a>
+            <Link href={`https://github.com/BrianARuff`}>
+              <a
+                style={{
+                  color: "#fdc500"
+                }}
+              >Github</a>
+            </Link>
           </li>
         </ul>
       </nav>
