@@ -1,20 +1,47 @@
+import Link from "next/link";
 import * as React from "react";
-import UserList from "../components/UserList";
-import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import NavBar from "../components/Navbar";
 
 const Home = () => {
-  const [hello, setHello] = useState({ hello: "" });
-  useEffect(() => {
-    const socket = io.io("http://localhost:8080/");
-    socket.on("now", data => {
-      setHello(data.message);
-    });
-    console.log(socket);
-  }, []);
   return (
-    // @ts-ignore
-    <UserList />
+    <div style={{
+      display: "flex",
+      flexFlow: "column nowrap",
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "80vh"
+    }}>
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: "bolder",
+          margin: `20px`
+        }}
+      >Welcome to Talkopia!</h1>
+      <div>
+        <p style={{
+          fontWeight: "bold",
+          margin: "20px"
+        }}>
+          <Link href={`/register`}>
+            <a style={{
+              color: "#fdc500"
+            }}>Need a new account?</a>
+          </Link>
+        </p>
+        <p style={{
+          fontWeight: "bold",
+          margin: "20px"
+        }}>
+          <Link href={`login`}>
+            <a style={{
+              color: "#fdc500"
+            }}>Already have an account?</a>
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 };
 

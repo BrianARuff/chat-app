@@ -1,8 +1,9 @@
-require("dotenv").config();
+require("dotenv").config()
 const { Client } = require("pg");
-var bcrypt = require("bcryptjs");
 
 let database;
+
+console.log(process.env.PG_PORT);
 
 if (process.env.NODE_ENV === "production") {
   database = new Client({
@@ -13,11 +14,11 @@ if (process.env.NODE_ENV === "production") {
   });
 } else {
   database = new Client({
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
-    password: "1234",
-    database: "chat_app",
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
   });
 }
 
